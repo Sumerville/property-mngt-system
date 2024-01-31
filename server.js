@@ -8,12 +8,6 @@ require("dotenv").config();
 const port = process.env.PORT;
 let MONGO_URL = process.env.MONGO_URL;
 
-app.get('/', (req, res)=>{
-res.send("Api Working")
-})
-
-
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
@@ -30,7 +24,6 @@ mongoose.connect(MONGO_URL,{
 mongoose.connection.on("open", ()=> console.log("Mongodb server connected"));
 mongoose.connection.on("error", (err)=> console.log(err.message))
 
-//username uwaaustin10    // pw nXmmljzdMMkMu4MX
 app.listen(port,()=>{
     console.log("Server running on port " + port)
 })
